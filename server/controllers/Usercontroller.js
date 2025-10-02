@@ -7,6 +7,7 @@ import userModel from "../models/userModel.js";
 // http://localhost:4000/api/user/webhooks
 
 const clerkWebhooks = async(req,res) =>{
+     console.log("Webhook received:", req.body.type); 
 
     try {
         // create a Svix instane with clerk webhook secret
@@ -41,7 +42,7 @@ const clerkWebhooks = async(req,res) =>{
                 const userData  = {
                     email:data.email_addresses[0].email_address,
                     firstName:data.first_name,
-                    lastname:data.last_name,
+                    lastName:data.last_name,
                     photo:data.image_url
                 }
 
