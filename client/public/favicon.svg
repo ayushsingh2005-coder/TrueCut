@@ -1,0 +1,51 @@
+<!-- truecut-t-monogram.svg
+     Simple, friendly 'T' monogram logo for TrueCut
+     - Scalable SVG (512x512)
+     - Main badge + compact glyph variant
+     - Clean geometric T with a diagonal 'cut' motif
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">TrueCut T Monogram</title>
+  <desc id="desc">A friendly geometric T monogram inside a rounded square badge, with a diagonal cut detail representing "cut".</desc>
+
+  <defs>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5e9" />
+      <stop offset="1" stop-color="#7c3aed" />
+    </linearGradient>
+
+    <!-- small glyph symbol for favicon/rounded avatars -->
+    <symbol id="glyph" viewBox="0 0 100 100">
+      <rect x="0" y="0" width="100" height="100" rx="20" fill="url(#brandGrad)" />
+      <path d="M28 28 H72 V40 H56 V72 H44 V40 H28 Z" fill="#ffffff"/>
+      <!-- diagonal cut -->
+      <path d="M66 34 L88 56 L78 66 L56 44 Z" fill="#ffffff" fill-opacity="0.12"/>
+    </symbol>
+  </defs>
+
+  <!-- outer rounded badge -->
+  <rect x="36" y="36" width="440" height="440" rx="64" ry="64" fill="url(#brandGrad)"/>
+
+  <!-- subtle inner shadow for depth -->
+  <rect x="36" y="36" width="440" height="440" rx="64" ry="64" fill="none" stroke="#000000" stroke-opacity="0.06" stroke-width="6"/>
+
+  <!-- geometric T (centered) -->
+  <g transform="translate(0,6)">
+    <!-- full T shape built from rectangles for crisp edges -->
+    <rect x="160" y="130" width="192" height="48" rx="8" fill="#ffffff"/>
+    <rect x="228" y="178" width="56" height="186" rx="8" fill="#ffffff"/>
+
+    <!-- rounded corner detail to make it friendly -->
+    <rect x="152" y="122" width="208" height="16" rx="8" fill="#ffffff" opacity="0.95"/>
+  </g>
+
+  <!-- diagonal 'cut' motif: a thin trimmed wedge that removes part of the T -->
+  <path d="M312 150 L420 258 L404 274 L296 166 Z" fill="#000000" fill-opacity="0.06"/>
+
+  <!-- compact glyph (top-right corner) to demonstrate favicon variant -->
+  <use href="#glyph" x="370" y="26" width="96" height="96"/>
+
+  <!-- optional brand name under badge (kept light; can be removed for icon-only usage) -->
+  <text x="50%" y="470" text-anchor="middle" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="40" fill="#ffffff" font-weight="700">TrueCut</text>
+
+</svg>

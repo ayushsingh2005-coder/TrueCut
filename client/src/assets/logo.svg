@@ -1,0 +1,42 @@
+<!-- Compact centered logo + brand name (logo unchanged, only scaled & positioned) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="96" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">Logo with brand name centered</title>
+  <desc id="desc">Compact rounded badge on left with brand name text centered vertically, whole group centered in canvas.</desc>
+
+  <defs>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5e9" />
+      <stop offset="1" stop-color="#7c3aed" />
+    </linearGradient>
+
+    <!-- glyph symbol preserved (unused visually, kept for fidelity) -->
+    <symbol id="glyph" viewBox="0 0 100 100">
+      <rect x="0" y="0" width="100" height="100" rx="20" fill="url(#brandGrad)" />
+      <path d="M28 28 H72 V40 H56 V72 H44 V40 H28 Z" fill="#ffffff"/>
+      <path d="M66 34 L88 56 L78 66 L56 44 Z" fill="#ffffff" fill-opacity="0.12"/>
+    </symbol>
+  </defs>
+
+  <!-- center the whole block -->
+  <g transform="translate(160,48)" text-anchor="start" dominant-baseline="middle">
+    <!-- Logo (exact original shapes kept, only scaled + shifted left) -->
+    <g transform="translate(-120,-36) scale(0.12)">
+      <!-- outer rounded badge (UNCHANGED) -->
+      <rect x="36" y="36" width="440" height="440" rx="64" ry="64" fill="url(#brandGrad)"/>
+      <rect x="36" y="36" width="440" height="440" rx="64" ry="64" fill="none" stroke="#000000" stroke-opacity="0.06" stroke-width="6"/>
+      <g transform="translate(0,6)">
+        <rect x="160" y="130" width="192" height="48" rx="8" fill="#ffffff"/>
+        <rect x="228" y="178" width="56" height="186" rx="8" fill="#ffffff"/>
+        <rect x="152" y="122" width="208" height="16" rx="8" fill="#ffffff" opacity="0.95"/>
+      </g>
+      <path d="M312 150 L420 258 L404 274 L296 166 Z" fill="#000000" fill-opacity="0.06"/>
+      <use href="#glyph" x="370" y="26" width="96" height="96"/>
+    </g>
+
+    <!-- brand text immediately to the right of the compact logo -->
+    <text x="-50" y="0" font-family="Inter, 'calibri', system-ui, sans-serif"
+          font-size="40" font-weight="600" fill="#0b1221">
+      TrueCut
+    </text>
+  </g>
+</svg>
