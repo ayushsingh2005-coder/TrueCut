@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import connectDB from './config/mongodb.js';
+import userRouter from './routes/userRoutes.js';
 
 
 // app config
@@ -17,6 +18,7 @@ app.use(cors());
 app.get('/' , (req,res)=>{
     res.send("hiiii")
 })
+app.use('/api/user',userRouter);
 
 app.listen(PORT , ()=>{
     console.log(`server is listening at http://localhost:${PORT}`);
