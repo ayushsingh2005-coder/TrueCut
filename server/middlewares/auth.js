@@ -13,7 +13,12 @@ const authUser = async (req,res,next) =>{
         }
         
         const token_decode = jwt.decode(token)
-        req.body.clerkId = token_decode.clerkId
+
+
+        if (!token_decode || !token_decode.clerkId) {
+            return res.json({ success: false, message: 'Invalid token' })
+        }
+        req.userId = token_decode.clerkId;
         next();
 
     } catch (error) {

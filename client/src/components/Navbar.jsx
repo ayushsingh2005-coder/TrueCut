@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
+import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const { openSignIn } = useClerk();
   const { isSignedIn, user } = useUser();
+  const {credit , loadCreditsData} = useContext(AppContext);
+
+  useEffect(()=>{
+    // first we check whether a user is signed in or not (if--> signedIn => call loadCreditsData and if not don't call)
+
+    if(isSignedIn){
+      loadCreditsData();
+    }
+
+  })
 
   return (
     <>
@@ -36,7 +47,12 @@ const Navbar = () => {
         </Link>
 
         {isSignedIn ? (
-          <div>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button className="flex items-center gap-2 bg-indigo-100 px-4 sm:px-7 py-1.5 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-400">
+              <img className="w-5" src={assets.credit_icon} alt="" />
+              <p className="text-xs sm:text-sm font-medium text-gray-700">Credits : {credit}</p>
+            </button>
+            <p className="text-gray-700 font-semibold max-sm:hidden">Hi , {user.fullName}</p>
             <UserButton/>
           </div>
         ) : (

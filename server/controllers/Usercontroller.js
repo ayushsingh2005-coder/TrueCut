@@ -76,7 +76,7 @@ const clerkWebhooks = async(req,res) =>{
 const userCredits = async (req,res) =>{
     try {
 
-        const {clerkId} = req.body;
+         const clerkId = req.userId;
         // we'll not send the clerkId in req body instead we send a middleware that will verify the token and the from the token we'll get this clerkId
         const userData = await userModel.findOne({clerkId});
 
