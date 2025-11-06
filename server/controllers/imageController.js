@@ -48,10 +48,13 @@ const removeBgImage = async(req,res) =>{
 
             // data variable contain the bg removed image --> send this to frontend as a response , so we create a base64 image
 
-            const base64Image = Buffer.form(data,'binary').toString('base64');
+            const base64Image = Buffer.from(data,'binary').toString('base64');
 
             const resultImage = `data:${req.file.mimetype};base64,${base64Image}`
 
+            await userModel.findByIdAndUpdate(user._id,{creditBalance:user.creditBalance - 1})
+
+            res.json({success:true, resultImage ,creditBalance :user.creditBalance - 1 , message:'Background Removed'})
             
         } catch (error) {
             console.log(error.message);
